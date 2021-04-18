@@ -4,7 +4,7 @@ import Command from "../utils/Command";
 import config from "../data/config.json"
 import log4js from 'log4js';
 
-const Logger = log4js.getLogger();
+const Logger = log4js.getLogger("message");
 
 interface ParsedCommand {
     args: string[]

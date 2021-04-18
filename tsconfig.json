@@ -9,6 +9,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
+    "strictNullChecks": true,
     "lib": ["es2020"]
   },
 }
