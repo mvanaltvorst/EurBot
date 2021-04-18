@@ -18,6 +18,7 @@ export default class EurBotClient extends Client {
             files.forEach((file: string) => {
                 const event = require(`./events/${file}`);
                 const eventName: string = file.split('.')[0];
+                Logger.info(`Loading event ${eventName}`);
                 this.on(eventName, event.handle);
             })
         });
@@ -34,7 +35,7 @@ export default class EurBotClient extends Client {
 
                     const props = require(`${dir}${file}`);
                     const commandName: string = file.split(".")[0];
-                    Logger.info(`Loading ${commandName}`);
+                    Logger.info(`Loading command ${commandName}`);
 
                     const command: Command = new (props.default)(commandName);
 
