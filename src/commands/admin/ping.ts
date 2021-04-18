@@ -13,10 +13,10 @@ export default class Ping extends Command {
         });
     }
 
-    async run(message: Message): Promise<Message | Message[]> {
-        const msgPing = "**Pinging..**";
-        const pingMsg = await message.reply(msgPing);
-        const msgPong = [
+    async run(message: Message): Promise<Message> {
+        const msgPing: string = "**Pinging..**";
+        const pingMsg: Message = await message.reply(msgPing);
+        const msgPong: string = [
             "**Pong!**",
             `The message round-trip took **${pingMsg.createdTimestamp - message.createdTimestamp}ms**.`,
             client.ws.ping ? `The heartbeat ping is **${Math.round(client.ws.ping)}ms**.` : ""

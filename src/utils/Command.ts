@@ -25,7 +25,7 @@ export default abstract class Command {
         this.category = options.category;
     }
 
-    abstract run(message: Message): Promise<Message | Message[] | undefined> | undefined;
+    abstract run(message: Message, args: string[], command: string): Promise<Message | Message[] | void>;
 
     async sendHelp(message: Message): Promise<Message> {
         return message.reply(`Usage: \`${this.usage}\`

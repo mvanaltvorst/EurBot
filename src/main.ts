@@ -14,7 +14,7 @@ log4js.configure({
 
 const Logger = log4js.getLogger();
 
-const client = new EurBotClient();
+const client: EurBotClient = new EurBotClient();
 if (!fs.existsSync(join(__dirname, "./data/config.json"))) {
     Logger.error("config.json does not exist");
 } else {
