@@ -1,0 +1,6 @@
+src/data/config.json
+node_modules/
+.DS_Store
+dist/
+logs
+*.log

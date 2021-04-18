@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "resolveJsonModule": true,
+      "incremental": true,
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "moduleResolution": "node",
+      "outDir": "dist",
+      "rootDir": "src",
+      "strict": true
+    },
+    "lib": ["es2020"]
+  }

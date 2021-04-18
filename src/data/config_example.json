@@ -1,0 +1,7 @@
+{
+    "token": "DISCORD TOKEN",
+    "prefix": "!",
+    "production": false,
+    "activity": "!help",
+    "admins": [""]
+}
