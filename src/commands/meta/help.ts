@@ -72,7 +72,7 @@ ${Object.entries(categorized)
         }
 
         if (command == null)
-            return message.reply("Command does not exist")
+            return message.channel.send("Command does not exist")
 
         if (command.help == false)
             return message.channel.send(`${command.commandName}`)

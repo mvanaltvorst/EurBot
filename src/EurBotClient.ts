@@ -6,12 +6,16 @@ import config from "./data/config.json";
 import log4js from "log4js";
 
 import Command from "./utils/Command";
+import EstimatorNotifier from "./utils/EstimatorNotifier";
 
 const Logger = log4js.getLogger();
 
 export default class EurBotClient extends Client {
     readonly commands: { [command: string]: Command } = {};
     public recentMessages: Message[] = [];
+
+    private estimatorNotifier: EstimatorNotifier = new EstimatorNotifier();
+
     async init(): Promise<void> {
         fs.readdir(join(__dirname, "events/"), (err, files: string[]): void => {
             if (err) return Logger.error(err);

@@ -8,7 +8,7 @@ export default class Eval extends Command {
     constructor(name: string) {
         super({
             name,
-            category: "Hidden",
+            category: "Admin",
             help: "Evaluate JS. Maurits only.",
             usage: "eval [code]",
         })
@@ -30,11 +30,11 @@ export default class Eval extends Command {
                 )
             );
         } catch (error) {
-            return message.reply(`${error.name}: ${error.message}`)
+            return message.channel.send(`${error.name}: ${error.message}`)
         }
     }
 
     async format(message: Message, obj: unknown): Promise<Message> {
-        return message.reply(`\`\`\`json\n${obj}\`\`\``)
+        return message.channel.send(`\`\`\`json\n${obj}\`\`\``)
     }
 }
