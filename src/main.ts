@@ -2,6 +2,7 @@ import log4js from "log4js";
 import EurBotClient from './EurBotClient';
 import fs from "fs";
 import { join } from "path";
+import EstimatorManager from "./utils/EstimatorManager";
 
 log4js.configure({
     appenders: {

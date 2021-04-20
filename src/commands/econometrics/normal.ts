@@ -2,9 +2,6 @@ import { Message } from 'discord.js';
 
 import Command from '../../utils/Command';
 import distributions, { Distribution } from 'distributions';
-import log4js from 'log4js';
-
-const Logger = log4js.getLogger("normal");
 
 export default class Normal extends Command {
     constructor(name: string) {
@@ -18,7 +15,6 @@ export default class Normal extends Command {
     }
 
     async run(message: Message, args: string[]): Promise<Message> {
-        Logger.info(args);
         let response: string;
         if (args.length >= 2) {
             const mean = parseFloat(args[0].replace(",", "."));

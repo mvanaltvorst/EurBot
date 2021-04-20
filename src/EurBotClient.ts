@@ -1,4 +1,4 @@
-import { Message, Client } from "discord.js";
+import { Message, Client, TextChannel } from "discord.js";
 import fs from "fs";
 import { join } from "path";
 
@@ -6,7 +6,7 @@ import config from "./data/config.json";
 import log4js from "log4js";
 
 import Command from "./utils/Command";
-import EstimatorNotifier from "./utils/EstimatorNotifier";
+import EstimatorNotifier from "./utils/EstimatorManager";
 
 const Logger = log4js.getLogger();
 
@@ -14,7 +14,8 @@ export default class EurBotClient extends Client {
     readonly commands: { [command: string]: Command } = {};
     public recentMessages: Message[] = [];
 
-    private estimatorNotifier: EstimatorNotifier = new EstimatorNotifier();
+    public estimatorNotifier: EstimatorNotifier = new EstimatorNotifier();
+    public estimatorChannels: TextChannel[] | undefined;
 
     async init(): Promise<void> {
         fs.readdir(join(__dirname, "events/"), (err, files: string[]): void => {

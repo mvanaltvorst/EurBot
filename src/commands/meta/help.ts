@@ -5,14 +5,6 @@ import { CommandCategory } from "../../utils/Command"
 import config from "../../data/config.json"
 import { PermissionResolvable } from "discord.js"
 
-const requiredPermissions: PermissionResolvable[] = [
-    "ADD_REACTIONS",
-    "ATTACH_FILES",
-    "EMBED_LINKS",
-    "MANAGE_MESSAGES",
-    "USE_EXTERNAL_EMOJIS"
-]
-
 export default class Help extends Command {
     constructor(name: string) {
         super({
@@ -37,16 +29,6 @@ export default class Help extends Command {
                 const category = cmd.category;
                 categorized[category].push(cmd.commandName)
             })
-
-            // const missingPerms: PermissionResolvable[] = []
-            // if (message.channel instanceof TextChannel) {
-            //     const userPerms = await message.channel.permissionsFor(client.user ?? "")
-
-            //     for (const permission of requiredPermissions)
-            //         if (userPerms && !userPerms.has(permission)) {
-            //             missingPerms.push(permission)
-            //         }
-            // }
 
             return message.channel.send(
                 `**Commands**: 
