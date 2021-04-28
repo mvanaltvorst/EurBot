@@ -49,7 +49,7 @@ ${Object.entries(categorized)
         // Check aliases
         if (command == null) {
             let found: [string, Command] | undefined = Object.entries(commands)
-                .find(([name, cmd]) => cmd.aliases.includes(commandName));
+                .find(([_, cmd]) => cmd.aliases.includes(commandName));
             if (found !== undefined) command = found[1];
         }
 

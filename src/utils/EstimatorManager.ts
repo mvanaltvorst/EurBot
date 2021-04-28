@@ -4,7 +4,7 @@ import { ensureDirSync } from 'fs-extra';
 import log4js from 'log4js';
 import fetch from 'node-fetch';
 import cheerio from 'cheerio';
-import { Channel, MessageEmbed } from 'discord.js';
+import { MessageEmbed } from 'discord.js';
 import client from '../main';
 
 const ESTIMATOR_TIMEOUT = 30*60*1000; // 30 minutes in milliseconds
@@ -84,7 +84,7 @@ export default class EstimatorManager {
     }
 
     private async addEstimator(post: EstimatorArticle): Promise<void> {
-        await this.addEstimatorStatement.run({
+        this.addEstimatorStatement.run({
             post_id: post.post_id,
             title: post.title,
             date: post.date,
@@ -100,7 +100,7 @@ export default class EstimatorManager {
             .setTitle(article.title)
             .setAuthor(article.authors)
             .setTimestamp(Date.parse(article.date))
-            .setURL(`https://estimator.faector.nl/article/{article.post_id}`)
+            .setURL(`https://estimator.faector.nl/article/${article.post_id}`)
             .setColor("#00EA69")
             .setDescription(article.slug)
             .setImage(`https://estimator.faector.nl/${article.image_url}`)

@@ -74,7 +74,7 @@ async function handleCommand(message: Message, cmdInfo: ParsedCommand): Promise<
 export async function handle(message: Message): Promise<void> {
     if (message.author.bot) return
 
-    const cmdInfo: ParsedCommand | false = await getCommand(message)
+    const cmdInfo: ParsedCommand | false = getCommand(message)
 
     if (cmdInfo && cmdInfo.cmd) {
         if (message.channel instanceof DMChannel)
